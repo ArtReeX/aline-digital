@@ -1,0 +1,9 @@
+{
+  "mysql": {
+    "host": "mysql",
+    "user": "root",
+    "password": "root",
+    "database": "db"
+  },
+  "redis": { "host": "redis", "port": 6379 }
+}

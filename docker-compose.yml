@@ -1,0 +1,31 @@
+version: '3.1'
+
+services:
+  node:
+    build: .
+    command: node index
+    ports:
+      - 80:80
+    links:
+      - mysql
+    environment:
+      - PORT=80
+
+  mysql:
+    image: mysql:5.6
+    volumes:
+      - ./db:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_PASSWORD=root
+      - MYSQL_DATABASE=db
+
+  adminer:
+    image: adminer
+    ports:
+      - 8080:8080
+    links:
+      - mysql:db
+
+  redis:
+    image: redis
